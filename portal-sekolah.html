@@ -565,6 +565,35 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
           <div class="buku-card"><div class="buku-cover" style="background:#fef3c7;">🧪</div><div class="buku-info"><div class="buku-judul">Kimia Dasar</div><div class="buku-meta">Raymond Chang</div><span class="buku-badge" style="background:#fef3c7;color:var(--ortu);">PDF</span></div></div>
         </div>
       </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="showPanel('guru','lms')">
+          <div class="app-notif">2</div>
+          <div class="app-icon" style="background:#eae7f8;">📝</div><div class="app-label">Tugas &amp; Materi</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','absen')">
+          <div class="app-icon" style="background:#d8f3dc;">📋</div><div class="app-label">Absensi Kelas</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','kurikulum')">
+          <div class="app-icon" style="background:#dbeafe;">📅</div><div class="app-label">Jadwal Mengajar</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','nilai')">
+          <div class="app-icon" style="background:#d8f3dc;">📊</div><div class="app-label">Nilai Siswa</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','pustaka')">
+          <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','notif')">
+          <div class="app-notif">2</div>
+          <div class="app-icon" style="background:#fee2e2;">🔔</div><div class="app-label">Notifikasi</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">CBT Ujian</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">App Absensi</div>
+        </div>
+      </div>
       <div id="gp-pinjam" style="display:none;">
         <table class="data-table"><thead><tr><th>Judul</th><th>Tgl Pinjam</th><th>Batas</th><th>Status</th></tr></thead><tbody>
           <tr><td>Fisika Dasar Vol.1</td><td>10 Jun</td><td>17 Jun</td><td><span class="chip chip-aktif">Dipinjam</span></td></tr>
@@ -920,6 +949,35 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
           <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">Buka Absensi</div>
         </div>
       </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="showPanel('siswa','tugas')">
+          <div class="app-notif">2</div>
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">Tugas</div>
+        </div>
+        <div class="app-item" onclick="showPanel('siswa','jadwal')">
+          <div class="app-icon" style="background:#d8f3dc;">📅</div><div class="app-label">Jadwal</div>
+        </div>
+        <div class="app-item" onclick="showPanel('siswa','nilai')">
+          <div class="app-icon" style="background:#dbeafe;">📊</div><div class="app-label">Nilai</div>
+        </div>
+        <div class="app-item" onclick="showPanel('siswa','absen')">
+          <div class="app-icon" style="background:#eae7f8;">📋</div><div class="app-label">Kehadiran</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-notif">1</div>
+          <div class="app-icon" style="background:#f8e1f4;">🖥️</div><div class="app-label">CBT Ujian</div>
+        </div>
+        <div class="app-item" onclick="showPanel('siswa','pustaka')">
+          <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">App Absensi</div>
+        </div>
+        <div class="app-item" onclick="showPanel('siswa','materi')">
+          <div class="app-icon" style="background:#d8f3dc;">📚</div><div class="app-label">Materi</div>
+        </div>
+      </div>
       <div class="section-card"><div class="section-head"><h3>Rekap Kehadiran Kelas</h3></div>
         <table class="data-table"><thead><tr><th>Kelas</th><th>Hadir</th><th>Izin</th><th>Alpha</th><th>%</th></tr></thead><tbody>
           <tr><td>XII IPA 1</td><td>34</td><td>1</td><td>1</td><td>94,4%</td></tr>
@@ -990,6 +1048,30 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
           <div class="sch-cell filled"><div class="sch-mapel">MTK</div><div class="sch-sub">XII IPA 1</div></div>
           <div class="sch-cell"></div>
         </div></div>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="showPanel('kepsek','absen')">
+          <div class="app-icon" style="background:#d8f3dc;">📊</div><div class="app-label">Kehadiran</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','nilai')">
+          <div class="app-icon" style="background:#dbeafe;">📈</div><div class="app-label">Nilai</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','cbt')">
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">Laporan CBT</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','beban')">
+          <div class="app-icon" style="background:#fef3c7;">👨‍🏫</div><div class="app-label">Beban Guru</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','kurikulum')">
+          <div class="app-icon" style="background:#eae7f8;">📅</div><div class="app-label">Kurikulum</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-icon" style="background:#f8e1f4;">🖥️</div><div class="app-label">Buka CBT</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">Buka Absensi</div>
+        </div>
       </div>
     </div>
   </main>
@@ -1117,6 +1199,21 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
       <div class="notif-strip" style="background:var(--pustakawan);">
         <span style="font-size:18px;">⚠️</span>
         <div><strong>4 buku terlambat dikembalikan</strong> — perlu ditindaklanjuti hari ini</div>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="showPanel('ortu','absen')">
+          <div class="app-icon" style="background:#d8f3dc;">📋</div><div class="app-label">Kehadiran Anak</div>
+        </div>
+        <div class="app-item" onclick="showPanel('ortu','nilai')">
+          <div class="app-icon" style="background:#dbeafe;">📊</div><div class="app-label">Nilai Anak</div>
+        </div>
+        <div class="app-item" onclick="showPanel('ortu','jadwal')">
+          <div class="app-icon" style="background:#eae7f8;">📅</div><div class="app-label">Jadwal</div>
+        </div>
+        <div class="app-item" onclick="showPanel('ortu','pustaka')">
+          <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+        </div>
       </div>
       <div class="app-grid" style="margin-bottom:20px;">
         <div class="app-item app-badge" data-badge="2" onclick="showPanel('pustakawan','pinjam')">
@@ -1415,6 +1512,22 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
         <div class="stat-card" style="border-left:3px solid var(--guru);"><div class="stat-icon">🗄️</div><div class="stat-label">Database</div><div class="stat-value">OK</div></div>
         <div class="stat-card" style="border-left:3px solid var(--ortu);"><div class="stat-icon">📜</div><div class="stat-label">Log Hari Ini</div><div class="stat-value">47</div></div>
       </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="showPanel('pustakawan','pinjam')">
+          <div class="app-notif">2</div>
+          <div class="app-icon" style="background:#cff4fc;">📤</div><div class="app-label">Pinjaman</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','koleksi')">
+          <div class="app-icon" style="background:#d8f3dc;">📚</div><div class="app-label">Koleksi Fisik</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','digital')">
+          <div class="app-icon" style="background:#dbeafe;">💾</div><div class="app-label">Buku Digital</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','laporan')">
+          <div class="app-icon" style="background:#fef3c7;">📊</div><div class="app-label">Laporan</div>
+        </div>
+      </div>
     </div>
     <div id="admin-users" style="display:none;"><div class="page-header"><div class="greeting">Kelola Pengguna</div></div>
       <div class="section-card"><div class="section-head"><h3>Daftar Pengguna</h3><button class="btn-primary" style="font-size:12px;">+ Tambah</button></div>
@@ -1479,6 +1592,33 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
           <div class="sch-cell"></div><div class="sch-cell"></div>
         </div></div>
         <div style="margin-top:10px;font-size:12px;color:var(--ink3);">🟥 Sel merah = konflik terdeteksi. Klik untuk perbaiki secara manual.</div>
+      </div>
+
+      <div class="app-grid">
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">CBT Ujian</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#d8f3dc;">📋</div><div class="app-label">Absensi</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','kurikulum')">
+          <div class="app-icon" style="background:#eae7f8;">📅</div><div class="app-label">Kurikulum</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','pustaka')">
+          <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','users')">
+          <div class="app-icon" style="background:#f8e1f4;">👥</div><div class="app-label">Pengguna</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','jadwal-otomatis')">
+          <div class="app-icon" style="background:#eae7f8;">⚡</div><div class="app-label">Jadwal Otomatis</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','log')">
+          <div class="app-icon" style="background:#d8f3dc;">📜</div><div class="app-label">Log Sistem</div>
+        </div>
+        <div class="app-item" onclick="showPanel('admin','settings')">
+          <div class="app-icon" style="background:#f0f0f0;">⚙️</div><div class="app-label">Pengaturan</div>
+        </div>
       </div>
       </div>
     </div>
