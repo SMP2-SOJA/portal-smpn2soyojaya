@@ -182,9 +182,10 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
 .hamburger span{display:block;width:16px;height:2px;background:#fff;border-radius:2px;}
 .sidebar-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:150;}
 .bottom-nav{display:none;position:fixed;bottom:0;left:0;right:0;height:var(--bottom-h);background:var(--ink);z-index:100;flex-direction:row;align-items:center;justify-content:space-around;padding:0 4px;border-top:1px solid rgba(255,255,255,.08);}
-.bnav-item{display:flex;flex-direction:column;align-items:center;gap:1px;padding:5px 8px;cursor:pointer;color:rgba(255,255,255,.5);font-size:10px;font-weight:600;}
-.bnav-item .bicon{font-size:18px;}
-.bnav-item.active,.bnav-item:hover{color:#fff;}
+.bnav-item{display:flex;flex-direction:column;align-items:center;gap:2px;padding:4px 6px;cursor:pointer;color:rgba(255,255,255,.45);font-size:9px;font-weight:600;border-radius:10px;transition:all .15s;min-width:52px;}
+.bnav-item .bicon{font-size:22px;line-height:1;}
+.bnav-item.active{color:#c9a84c;background:rgba(201,168,76,.12);}
+.bnav-item:hover{color:#fff;}
 
 @media(max-width:768px){
   .sidebar{position:fixed;top:0;left:0;height:100%;z-index:160;transform:translateX(-100%);}
@@ -198,6 +199,19 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   .buku-grid{grid-template-columns:repeat(auto-fill,minmax(130px,1fr));}
 }
 @media(max-width:380px){.stats-grid{grid-template-columns:1fr;}}
+
+/* App Grid — ikon besar seperti homescreen HP */
+.app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:24px;}
+.app-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:14px 8px;background:var(--card);border:1px solid var(--border);border-radius:16px;cursor:pointer;transition:transform .12s,box-shadow .12s;text-align:center;text-decoration:none;}
+.app-item:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(26,42,94,.14);}
+.app-item:active{transform:scale(.95);}
+.app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:2px;}
+.app-label{font-size:11px;font-weight:600;color:var(--ink2);line-height:1.3;}
+.app-badge{position:relative;}
+.app-badge::after{content:attr(data-badge);position:absolute;top:-4px;right:-4px;background:#e74c3c;color:#fff;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+@media(max-width:480px){.app-grid{grid-template-columns:repeat(4,1fr);gap:8px;}.app-icon{width:44px;height:44px;font-size:20px;}.app-label{font-size:10px;}}
+@media(max-width:360px){.app-grid{grid-template-columns:repeat(3,1fr);}}
+
 </style>
 </head>
 <body>
@@ -268,7 +282,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
             <div><div style="font-size:13px;font-weight:700;color:var(--ink);">CBT Spenda</div><div style="font-size:11px;color:var(--ink3);">Buka aplikasi ujian</div></div>
             <div style="margin-left:auto;color:var(--ink3);">↗</div>
           </a>
-          <a href="https://smp2-absen.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:12px 16px;text-decoration:none;flex:1;min-width:180px;">
+          <a href="https://spenda-absen.pages.dev" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:12px 16px;text-decoration:none;flex:1;min-width:180px;">
             <div style="width:34px;height:34px;background:#d8f3dc;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📋</div>
             <div><div style="font-size:13px;font-weight:700;color:var(--ink);">Absensi</div><div style="font-size:11px;color:var(--ink3);">Buka aplikasi absensi</div></div>
             <div style="margin-left:auto;color:var(--ink3);">↗</div>
@@ -282,11 +296,31 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
         <div class="stat-card"><div class="stat-icon">📝</div><div class="stat-label">Tugas Aktif</div><div class="stat-value">3</div></div>
         <div class="stat-card"><div class="stat-icon">📅</div><div class="stat-label">Jam/Minggu</div><div class="stat-value">24</div></div>
       </div>
-      <div class="modules-grid">
-        <div class="module-card" onclick="showPanel('guru','lms')"><div class="mod-icon" style="background:#eae7f8;">📝</div><div class="mod-name">LMS</div><div class="mod-desc">Tugas & materi</div><span class="mod-status status-live">2 pending</span></div>
-        <div class="module-card" onclick="showPanel('guru','absen')"><div class="mod-icon" style="background:#d8f3dc;">📋</div><div class="mod-name">Absensi</div><div class="mod-desc">Input kehadiran</div></div>
-        <div class="module-card" onclick="showPanel('guru','kurikulum')"><div class="mod-icon" style="background:#dbeafe;">📅</div><div class="mod-name">Jadwal</div><div class="mod-desc">Jadwal mengajar</div></div>
-        <div class="module-card" onclick="showPanel('guru','pustaka')"><div class="mod-icon" style="background:#fef3c7;">📖</div><div class="mod-name">Pustaka</div><div class="mod-desc">Buku & referensi</div></div>
+      <div class="app-grid">
+        <div class="app-item app-badge" data-badge="2" onclick="showPanel('guru','lms')">
+          <div class="app-icon" style="background:#eae7f8;">📝</div><div class="app-label">Tugas & Materi</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','absen')">
+          <div class="app-icon" style="background:#d8f3dc;">📋</div><div class="app-label">Absensi Kelas</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','kurikulum')">
+          <div class="app-icon" style="background:#dbeafe;">📅</div><div class="app-label">Jadwal Mengajar</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','nilai')">
+          <div class="app-icon" style="background:#d8f3dc;">📊</div><div class="app-label">Nilai Siswa</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','pustaka')">
+          <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+        </div>
+        <div class="app-item" onclick="showPanel('guru','notif')">
+          <div class="app-icon" style="background:#fee2e2;">🔔</div><div class="app-label">Notifikasi</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">CBT Ujian</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">App Absensi</div>
+        </div>
       </div>
     </div>
     <div id="guru-lms" style="display:none;">
@@ -593,13 +627,31 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="stat-card"><div class="stat-icon">📝</div><div class="stat-label">Tugas Belum Kumpul</div><div class="stat-value" style="color:#b91c1c;">2</div></div>
   <div class="stat-card"><div class="stat-icon">🏆</div><div class="stat-label">Peringkat</div><div class="stat-value">5</div><div class="stat-sub">dari 36 siswa</div></div>
 </div>
-<div class="modules-grid">
-  <div class="module-card" onclick="showPanel('siswa','tugas')"><div class="mod-icon" style="background:#fee2e2;">📝</div><div class="mod-name">Tugas & LMS</div><div class="mod-desc">2 belum dikumpulkan</div><span class="mod-status status-live">2 Pending</span></div>
-  <div class="module-card" onclick="showPanel('siswa','jadwal')"><div class="mod-icon" style="background:#d8f3dc;">📅</div><div class="mod-name">Jadwal</div><div class="mod-desc">Hari ini 4 pelajaran</div><span class="mod-status status-live">Aktif</span></div>
-  <div class="module-card" onclick="showPanel('siswa','nilai')"><div class="mod-icon" style="background:#dbeafe;">📊</div><div class="mod-name">Nilai</div><div class="mod-desc">1 mapel di bawah KKM</div></div>
-  <div class="module-card" onclick="showPanel('siswa','absen')"><div class="mod-icon" style="background:#eae7f8;">📋</div><div class="mod-name">Absensi</div><div class="mod-desc">96% semester ini</div></div>
-  <div class="module-card" onclick="showPanel('siswa','pustaka')"><div class="mod-icon" style="background:#fef3c7;">📖</div><div class="mod-name">Pustaka</div><div class="mod-desc">Buku digital & pinjam</div><span class="mod-status status-live">Aktif</span></div>
-  <div class="module-card" onclick="showPanel('siswa','cbt')"><div class="mod-icon" style="background:#f8e1f4;">🖥️</div><div class="mod-name">CBT — Ujian</div><div class="mod-desc">1 ujian tersedia</div><span class="mod-status status-live">1 Aktif</span></div>
+<div class="app-grid">
+  <div class="app-item app-badge" data-badge="2" onclick="showPanel('siswa','tugas')">
+    <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">Tugas</div>
+  </div>
+  <div class="app-item" onclick="showPanel('siswa','jadwal')">
+    <div class="app-icon" style="background:#d8f3dc;">📅</div><div class="app-label">Jadwal</div>
+  </div>
+  <div class="app-item" onclick="showPanel('siswa','nilai')">
+    <div class="app-icon" style="background:#dbeafe;">📊</div><div class="app-label">Nilai</div>
+  </div>
+  <div class="app-item" onclick="showPanel('siswa','absen')">
+    <div class="app-icon" style="background:#eae7f8;">📋</div><div class="app-label">Kehadiran</div>
+  </div>
+  <div class="app-item app-badge" data-badge="1" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+    <div class="app-icon" style="background:#f8e1f4;">🖥️</div><div class="app-label">CBT Ujian</div>
+  </div>
+  <div class="app-item" onclick="showPanel('siswa','pustaka')">
+    <div class="app-icon" style="background:#fef3c7;">📖</div><div class="app-label">Pustaka</div>
+  </div>
+  <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+    <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">App Absensi</div>
+  </div>
+  <div class="app-item" onclick="showPanel('siswa','materi')">
+    <div class="app-icon" style="background:#d8f3dc;">📚</div><div class="app-label">Materi</div>
+  </div>
 </div>
 
     </div>
@@ -845,6 +897,29 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
         <div class="stat-card"><div class="stat-icon">📊</div><div class="stat-label">Rata-rata Nilai</div><div class="stat-value">79,4</div></div>
         <div class="stat-card"><div class="stat-icon">✅</div><div class="stat-label">Kehadiran</div><div class="stat-value">98%</div></div>
       </div>
+      <div class="app-grid" style="margin-bottom:20px;">
+        <div class="app-item" onclick="showPanel('kepsek','absen')">
+          <div class="app-icon" style="background:#d8f3dc;">📊</div><div class="app-label">Kehadiran</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','nilai')">
+          <div class="app-icon" style="background:#dbeafe;">📈</div><div class="app-label">Nilai</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','cbt')">
+          <div class="app-icon" style="background:#fee2e2;">📝</div><div class="app-label">Laporan CBT</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','beban')">
+          <div class="app-icon" style="background:#fef3c7;">👨‍🏫</div><div class="app-label">Beban Guru</div>
+        </div>
+        <div class="app-item" onclick="showPanel('kepsek','kurikulum')">
+          <div class="app-icon" style="background:#eae7f8;">📅</div><div class="app-label">Kurikulum</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://cbt-spenda.vercel.app','CBT')">
+          <div class="app-icon" style="background:#f8e1f4;">🖥️</div><div class="app-label">Buka CBT</div>
+        </div>
+        <div class="app-item" onclick="bukaAplikasi('https://spenda-absen.pages.dev','Absensi')">
+          <div class="app-icon" style="background:#cff4fc;">📲</div><div class="app-label">Buka Absensi</div>
+        </div>
+      </div>
       <div class="section-card"><div class="section-head"><h3>Rekap Kehadiran Kelas</h3></div>
         <table class="data-table"><thead><tr><th>Kelas</th><th>Hadir</th><th>Izin</th><th>Alpha</th><th>%</th></tr></thead><tbody>
           <tr><td>XII IPA 1</td><td>34</td><td>1</td><td>1</td><td>94,4%</td></tr>
@@ -1042,6 +1117,20 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
       <div class="notif-strip" style="background:var(--pustakawan);">
         <span style="font-size:18px;">⚠️</span>
         <div><strong>4 buku terlambat dikembalikan</strong> — perlu ditindaklanjuti hari ini</div>
+      </div>
+      <div class="app-grid" style="margin-bottom:20px;">
+        <div class="app-item app-badge" data-badge="2" onclick="showPanel('pustakawan','pinjam')">
+          <div class="app-icon" style="background:#cff4fc;">📤</div><div class="app-label">Pinjaman</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','koleksi')">
+          <div class="app-icon" style="background:#d8f3dc;">📚</div><div class="app-label">Koleksi</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','digital')">
+          <div class="app-icon" style="background:#dbeafe;">💾</div><div class="app-label">Digital</div>
+        </div>
+        <div class="app-item" onclick="showPanel('pustakawan','laporan')">
+          <div class="app-icon" style="background:#fef3c7;">📊</div><div class="app-label">Laporan</div>
+        </div>
       </div>
       <div id="pk-dashboard">
         
@@ -1313,9 +1402,9 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
             <div><div style="font-size:14px;font-weight:700;color:var(--ink);">CBT Spenda</div><div style="font-size:11px;color:var(--ink3);">Ujian Online — cbt-spenda.vercel.app</div></div>
             <div style="margin-left:auto;font-size:18px;color:var(--ink3);">↗</div>
           </a>
-          <a href="https://smp2-absen.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:14px 18px;text-decoration:none;flex:1;min-width:200px;transition:box-shadow .15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
+          <a href="https://spenda-absen.pages.dev" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:14px 18px;text-decoration:none;flex:1;min-width:200px;transition:box-shadow .15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
             <div style="width:38px;height:38px;background:#d8f3dc;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📋</div>
-            <div><div style="font-size:14px;font-weight:700;color:var(--ink);">Absensi Siswa & Guru</div><div style="font-size:11px;color:var(--ink3);">Kehadiran — smp2-absen.vercel.app</div></div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--ink);">Absensi Siswa & Guru</div><div style="font-size:11px;color:var(--ink3);">Kehadiran — spenda-absen.pages.dev</div></div>
             <div style="margin-left:auto;font-size:18px;color:var(--ink3);">↗</div>
           </a>
         </div>
@@ -1446,7 +1535,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
       <div class="section-card"><div class="section-head"><h3>Semua Modul Aplikasi</h3></div>
         <table class="data-table"><thead><tr><th>Modul</th><th>Status</th><th>URL / Keterangan</th><th>Aksi</th></tr></thead><tbody>
           <tr><td><strong>CBT</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><a href="https://cbt-spenda.vercel.app" target="_blank" style="font-size:12px;font-family:monospace;color:var(--accent2);">cbt-spenda.vercel.app ↗</a></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
-          <tr><td><strong>Absensi</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><a href="https://smp2-absen.vercel.app" target="_blank" style="font-size:12px;font-family:monospace;color:var(--accent2);">smp2-absen.vercel.app ↗</a></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
+          <tr><td><strong>Absensi</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><a href="https://spenda-absen.pages.dev" target="_blank" style="font-size:12px;font-family:monospace;color:var(--accent2);">spenda-absen.pages.dev ↗</a></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
           <tr><td><strong>Kurikulum & LMS</strong></td><td><span class="chip chip-aktif">Aktif (Portal)</span></td><td>Terintegrasi di portal ini</td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan</span></td></tr>
           <tr><td><strong>Pustaka Digital</strong></td><td><span class="chip chip-aktif">Aktif (Portal)</span></td><td>Terintegrasi di portal ini</td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan</span></td></tr>
         </tbody></table>
@@ -1875,6 +1964,15 @@ function closeSidebar() {
 function setBnav(navId, el) {
   document.querySelectorAll('#' + navId + ' .bnav-item').forEach(i => i.classList.remove('active'));
   el.classList.add('active');
+}
+
+
+// SSO — buka CBT/Absen dengan token, tanpa login ulang
+function bukaAplikasi(url, nama) {
+  // Kirim info user via URL param (untuk integrasi masa depan)
+  // Sementara langsung buka URL aplikasi
+  const win = window.open(url, '_blank');
+  if (!win) { alert('Popup diblokir. Izinkan popup untuk membuka ' + nama); }
 }
 
 function openKumpulTugas() {
