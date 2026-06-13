@@ -13,7 +13,7 @@
 
 :root {
   --ink:#1a1a2e; --ink2:#3d3d5c; --ink3:#7a7a9a;
-  --surface:#f5f4f8; --card:#ffffff; --border:#e4e2ec;
+  --surface:#f0f2f8; --card:#ffffff; --border:#dde1ed;
   --guru:#2d6a4f; --guru-bg:#d8f3dc;
   --siswa:#1565c0; --siswa-bg:#dbeafe;
   --kepsek:#6a1b4d; --kepsek-bg:#f8e1f4;
@@ -22,7 +22,7 @@
   --pustakawan:#0e5a6e; --pustakawan-bg:#cff4fc;
   --accent:#1a2a5e; --accent2:#c9a84c;
   --radius:14px; --shadow:0 2px 12px rgba(79,60,201,.08);
-  --sidebar-w:240px; --bottom-h:60px;
+  --sidebar-w:220px; --bottom-h:58px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surface);color:var(--ink);min-height:100vh;}
@@ -31,7 +31,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
 
 /* LOGIN */
 #screen-login{flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#f5f4f8,#eae7f8);padding:24px;}
-.login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:0 8px 40px rgba(79,60,201,.12);padding:44px 40px 36px;width:100%;max-width:420px;}
+.login-card{background:var(--card);border:1px solid var(--border);border-radius:20px;box-shadow:0 8px 48px rgba(26,42,94,.15);padding:40px 36px 32px;width:100%;max-width:400px;}
 .school-badge{display:flex;align-items:center;gap:12px;margin-bottom:28px;}
 .badge-icon{width:46px;height:46px;background:var(--accent);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;}
 .badge-text h1{font-size:17px;font-weight:700;color:var(--ink);}
@@ -42,8 +42,8 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
 .field label{display:block;font-size:11px;font-weight:600;color:var(--ink2);margin-bottom:5px;letter-spacing:.3px;text-transform:uppercase;}
 .field input,.field select{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:14px;color:var(--ink);background:var(--surface);outline:none;transition:border-color .15s;}
 .field input:focus{border-color:var(--accent2);background:#fff;}
-.btn-primary{padding:12px 24px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s,transform .1s;}
-.btn-primary:hover{background:var(--accent2);}
+.btn-primary{padding:12px 24px;background:var(--accent);color:#fff;border:none;border-radius:10px;font-family:inherit;font-size:14px;font-weight:600;cursor:pointer;transition:background .15s,transform .1s;letter-spacing:.2px;}
+.btn-primary:hover{background:#c9a84c;color:#1a2a5e;}
 .btn-primary:active{transform:scale(.98);}
 .btn-primary.full{width:100%;font-size:15px;padding:13px;}
 .btn-outline{padding:10px 20px;background:var(--surface);color:var(--ink2);border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:border-color .15s;}
@@ -72,6 +72,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
 .user-info .role-label{font-size:11px;color:rgba(255,255,255,.45);}
 .logout-btn{font-size:18px;color:rgba(255,255,255,.3);background:none;border:none;cursor:pointer;}
 .logout-btn:hover{color:#ff6b6b;}
+.logout-red{background:#c0392b;border:none;color:#fff;padding:5px 10px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;}
 
 /* MAIN */
 .main-content{flex:1;padding:28px 32px;overflow-y:auto;}
@@ -253,12 +254,27 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--guru);">BG</div>
     <div class="user-info"><div class="name">Budi Gunawan</div><div class="role-label">Guru Matematika</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-guru">
     <div id="guru-home">
       <div class="page-header"><div class="greeting" id="guru-greeting">Selamat pagi, Pak Budi 👋</div><div class="sub">Semester Ganjil 2025/2026</div></div>
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;">Aplikasi Terintegrasi</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://cbt-spenda.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #fee2e2;border-radius:12px;padding:12px 16px;text-decoration:none;flex:1;min-width:180px;">
+            <div style="width:34px;height:34px;background:#fee2e2;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📝</div>
+            <div><div style="font-size:13px;font-weight:700;color:var(--ink);">CBT Spenda</div><div style="font-size:11px;color:var(--ink3);">Buka aplikasi ujian</div></div>
+            <div style="margin-left:auto;color:var(--ink3);">↗</div>
+          </a>
+          <a href="https://smp2-absen.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:12px 16px;text-decoration:none;flex:1;min-width:180px;">
+            <div style="width:34px;height:34px;background:#d8f3dc;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;">📋</div>
+            <div><div style="font-size:13px;font-weight:700;color:var(--ink);">Absensi</div><div style="font-size:11px;color:var(--ink3);">Buka aplikasi absensi</div></div>
+            <div style="margin-left:auto;color:var(--ink3);">↗</div>
+          </a>
+        </div>
+      </div>
       <div class="notif-strip" style="background:var(--guru);"><span style="font-size:18px;">⏰</span><div><strong>Matematika XII IPA 1</strong> dimulai dalam 15 menit — Ruang 3B</div></div>
       <div class="stats-grid">
         <div class="stat-card"><div class="stat-icon">🎒</div><div class="stat-label">Siswa Diajar</div><div class="stat-value">128</div></div>
@@ -557,7 +573,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--siswa);">AP</div>
     <div class="user-info"><div class="name">Andi Pratama</div><div class="role-label">XII IPA 1</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-siswa">
@@ -817,7 +833,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--kepsek);">DR</div>
     <div class="user-info"><div class="name">Dr. Hj. Rosmawati</div><div class="role-label">Kepala Sekolah</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-kepsek">
@@ -932,7 +948,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--ortu);">SP</div>
     <div class="user-info"><div class="name">Supardi</div><div class="role-label">Wali — Andi Pratama</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-ortu">
@@ -1017,7 +1033,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--pustakawan);">RP</div>
     <div class="user-info"><div class="name">Rina Pustakawati</div><div class="role-label">Pustakawan</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-pustakawan">
@@ -1282,12 +1298,28 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
   <div class="sidebar-footer"><div class="user-row">
     <div class="user-avatar" style="background:var(--admin);">AD</div>
     <div class="user-info"><div class="name">Administrator</div><div class="role-label">Akses penuh</div></div>
-    <button class="logout-btn" onclick="doLogout()">⏏</button>
+    <button onclick="doLogout()" style="background:#c0392b;border:none;color:#fff;padding:5px 12px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;font-weight:600;flex-shrink:0;letter-spacing:.2px;">⏻ Keluar</button>
   </div></div>
 </aside>
   <main class="main-content" id="main-admin">
     <div id="admin-home">
       <div class="page-header"><div class="greeting">Panel Administrator 🔐</div><div class="sub">Akses penuh ke seluruh sistem</div></div>
+      <!-- Link ke CBT & Absen lama -->
+      <div style="margin-bottom:20px;">
+        <div style="font-size:12px;font-weight:600;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px;">Aplikasi Terintegrasi</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="https://cbt-spenda.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #fee2e2;border-radius:12px;padding:14px 18px;text-decoration:none;flex:1;min-width:200px;transition:box-shadow .15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
+            <div style="width:38px;height:38px;background:#fee2e2;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📝</div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--ink);">CBT Spenda</div><div style="font-size:11px;color:var(--ink3);">Ujian Online — cbt-spenda.vercel.app</div></div>
+            <div style="margin-left:auto;font-size:18px;color:var(--ink3);">↗</div>
+          </a>
+          <a href="https://smp2-absen.vercel.app" target="_blank" style="display:flex;align-items:center;gap:10px;background:var(--card);border:1.5px solid #d8f3dc;border-radius:12px;padding:14px 18px;text-decoration:none;flex:1;min-width:200px;transition:box-shadow .15s;" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.1)'" onmouseout="this.style.boxShadow='none'">
+            <div style="width:38px;height:38px;background:#d8f3dc;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">📋</div>
+            <div><div style="font-size:14px;font-weight:700;color:var(--ink);">Absensi Siswa & Guru</div><div style="font-size:11px;color:var(--ink3);">Kehadiran — smp2-absen.vercel.app</div></div>
+            <div style="margin-left:auto;font-size:18px;color:var(--ink3);">↗</div>
+          </a>
+        </div>
+      </div>
       <div class="stats-grid">
         <div class="stat-card" style="border-left:3px solid var(--admin);"><div class="stat-icon">👤</div><div class="stat-label">Total Pengguna</div><div class="stat-value">911</div></div>
         <div class="stat-card" style="border-left:3px solid var(--siswa);"><div class="stat-icon">🧩</div><div class="stat-label">Modul Aktif</div><div class="stat-value">4/4</div></div>
@@ -1413,8 +1445,8 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--surfa
     <div id="admin-modules" style="display:none;"><div class="page-header"><div class="greeting">Status Modul</div></div>
       <div class="section-card"><div class="section-head"><h3>Semua Modul Aplikasi</h3></div>
         <table class="data-table"><thead><tr><th>Modul</th><th>Status</th><th>URL / Keterangan</th><th>Aksi</th></tr></thead><tbody>
-          <tr><td><strong>CBT</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><code style="font-size:12px;">spenda-cbt.vercel.app</code></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
-          <tr><td><strong>Absensi</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><code style="font-size:12px;">spenda-absen.vercel.app</code></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
+          <tr><td><strong>CBT</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><a href="https://cbt-spenda.vercel.app" target="_blank" style="font-size:12px;font-family:monospace;color:var(--accent2);">cbt-spenda.vercel.app ↗</a></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
+          <tr><td><strong>Absensi</strong></td><td><span class="chip chip-tuntas">Aktif</span></td><td><a href="https://smp2-absen.vercel.app" target="_blank" style="font-size:12px;font-family:monospace;color:var(--accent2);">smp2-absen.vercel.app ↗</a></td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan · Nonaktifkan</span></td></tr>
           <tr><td><strong>Kurikulum & LMS</strong></td><td><span class="chip chip-aktif">Aktif (Portal)</span></td><td>Terintegrasi di portal ini</td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan</span></td></tr>
           <tr><td><strong>Pustaka Digital</strong></td><td><span class="chip chip-aktif">Aktif (Portal)</span></td><td>Terintegrasi di portal ini</td><td><span style="color:var(--accent2);font-size:12px;font-weight:600;cursor:pointer;">Pengaturan</span></td></tr>
         </tbody></table>
